@@ -1,33 +1,21 @@
 package wiredlife.com.picknick;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -38,21 +26,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.wiredlife.jsonformatjava.model.unload.Unload;
 import com.wiredlife.jsonformatjava.model.unload.User;
 import com.wiredlife.jsonformatjava.model.unload.Zone;
-import com.wiredlife.jsonformatjava.utility.Lock;
 
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import wiredlife.com.picknick.async.DoMiningProgressAsync;
 import wiredlife.com.picknick.async.DoSendUnloadAsync;
 import wiredlife.com.picknick.utility.MiningModule;
 
 public class MapsActivity extends FragmentActivity implements LocationListener {
-
-    private Lock lock;
 
     private List<Zone> zones;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
@@ -62,16 +46,10 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
 
     private Thread miningProgressThread;
 
-    private PopupWindow popupWindow;
-
-    private Zone currentZone;
-
     private DoMiningProgressAsync async;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        lock = new Lock();
-
         zones = new ArrayList<Zone>();
 
         zones.add(new Zone(55.517099, 13.230408, 100, "Wood", 10));
@@ -267,17 +245,4 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         Log.i("onProviderDisabled", "Provider disabled!");
     }
 
-    // The method that displays the popup.
-    private void showPopup(final Activity context) {
-        findViewById(R.id.map).post(new Runnable() {
-            public void run() {
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View layout = inflater.inflate(R.layout.popup_mining, null);
-
-                PopupWindow popup = new PopupWindow(layout, 300, 370, true);
-                popup.setBackgroundDrawable(new BitmapDrawable());
-                popup.showAtLocation(layout, Gravity.CENTER, 0, 0);
-            }
-        });
-    }
 }

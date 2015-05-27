@@ -6,9 +6,6 @@ import java.io.IOException;
 
 import wiredlife.com.picknick.utility.YggdrasilAPI;
 
-/**
- * Created by Daniel on 2015-05-25.
- */
 public class DoLoginAsync extends AsyncTask<String, Integer, Boolean> {
 
     @Override

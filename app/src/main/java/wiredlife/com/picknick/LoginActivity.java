@@ -1,22 +1,12 @@
 package wiredlife.com.picknick;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.wiredlife.jsonformatjava.model.unload.User;
@@ -24,23 +14,20 @@ import com.wiredlife.jsonformatjava.model.unload.User;
 import java.util.concurrent.ExecutionException;
 
 import wiredlife.com.picknick.async.DoLoginAsync;
-import wiredlife.com.picknick.utility.YggdrasilAPI;
-
 
 public class LoginActivity extends Activity {
+
+    EditText edtUsername;
+    EditText edtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText edtUsername = (EditText)findViewById(R.id.edtUsername);
-        EditText edtPassword = (EditText)findViewById(R.id.edtPassword);
-
-        edtUsername.setText("bejbejpomp");
-        edtPassword.setText("wiredlife");
+        edtUsername = (EditText)findViewById(R.id.edtUsername);
+        edtPassword = (EditText)findViewById(R.id.edtPassword);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,9 +52,6 @@ public class LoginActivity extends Activity {
     }
 
     public void btnLogin_Click(View v) {
-        EditText edtUsername = (EditText) findViewById(R.id.edtUsername);
-        EditText edtPassword = (EditText) findViewById(R.id.edtPassword);
-
         boolean result = false;
         try {
             result = new DoLoginAsync().execute(edtUsername.getText().toString(), edtPassword.getText().toString()).get();
