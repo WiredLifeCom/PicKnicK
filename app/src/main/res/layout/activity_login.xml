@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/login"
+    android:layout_height="match_parent"
+    android:background="#5d907f">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/logo"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edtUsername"
+            android:layout_gravity="center_horizontal"
+            android:password="false"
+            android:background="#FFF"
+            android:padding="8dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Username" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/edtPassword"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:password="true"
+            android:background="#FFF"
+            android:padding="8dp"
+            android:hint="Password" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ImageButton
+            android:layout_width="283dp"
+            android:layout_height="83dp"
+            android:id="@+id/btnLogin"
+            android:src="@drawable/loginbutton"
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000"
+            android:onClick="btnLogin_Click" />
+    </LinearLayout>
+</LinearLayout>

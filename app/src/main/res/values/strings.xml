@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PicKnicK</string>
+    <string name="title_activity_maps">PicKnicK</string>
+
+    <string name="title_activity_login">PicKnicK</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
